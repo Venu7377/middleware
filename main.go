@@ -23,19 +23,19 @@ func (l *Logger) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func NewLogger(handlerToWrap http.Handler) *Logger {
 	return &Logger{handlerToWrap}
 }
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("hello this is Home Page"))
-}
-func abstractHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("hello this Abstract Page"))
-}
-func main() {
-	mux := mux.NewRouter()
-	mux.HandleFunc("/hello", helloHandler)
-	mux.HandleFunc("/abstract",abstractHandler)
-	wrappedmux := NewLogger(mux)
-	http.ListenAndServe(":8080", wrappedmux)
-}
+// func helloHandler(w http.ResponseWriter, r *http.Request) {
+// 	w.Write([]byte("hello this is Home Page"))
+// }
+// func abstractHandler(w http.ResponseWriter, r *http.Request) {
+// 	w.Write([]byte("hello this Abstract Page"))
+// }
+// func main() {
+// 	mux := mux.NewRouter()
+// 	mux.HandleFunc("/hello", helloHandler)
+// 	mux.HandleFunc("/abstract",abstractHandler)
+// 	wrappedmux := NewLogger(mux)
+// 	http.ListenAndServe(":8080", wrappedmux)
+// }
 
 // basic logging middleware
 
